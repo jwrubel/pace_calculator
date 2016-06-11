@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> ><! <![endif]-->
+<html class="no-js">
+<!-- <![endif] -->
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<title>Running Pace Calculator</title>
+<meta content="running pace calculator, calculate marathon pace, distance pace, mobile pace calculator" name="description">
+<meta content="width=device-width" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<link href="favicon.ico" rel="icon">
+<link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed">
+<link href="apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+<link href="apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+<link href="apple-touch-icon-144x144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+<script src="scripts/vendor/f7f27360.modernizr.js"></script>
+<link href="styles/ef1a0604.main.css" rel="stylesheet">
+</head>
+<body>
+<div class="row">
+<div class="small-8 large-10 columns">
+<h4>Running Pace Calculator</h4>
+</div>
+<div class="small-4 large-2 columns">
+<div class="switch">
+<input checked="checked" data-ratio="1.60934" id="mile" name="switch-unit" type="radio">
+<label for="mile" onclick="">Miles</label>
+<input data-ratio="1" id="km" name="switch-unit" type="radio">
+<label for="km" onclick="">Km</label>
+<span></span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="small-12 columns">
+<div class="description">Figure out your pace from your time and distance, or plot your finish time based on your pace for an event.</div>
+<form action="" class="custom">
+<div class="row">
+<div class="small-12 columns">
+<strong>Distance</strong>
+</div>
+</div>
+<div class="row collapse">
+<div class="small-6 columns">
+<select class="distance" id="distanceDropdown" name="event">
+<option value="0">Select a Distance:</option>
+<option value="42.195">Marathon</option>
+<option value="21.0975">Half-Marathon</option>
+<option value="5.000">5k</option>
+<option value="10.000">10k</option>
+<option value="8.04672">5 Mile</option>
+<option value="16.0934">10 Mile</option>
+<option value="24.1402">15 Mile</option>
+<option value="32.1869">20 Mile</option>
+<option value="50.000">50k</option>
+<option value="80.4672">50 Mile</option>
+<option value="160.934">100 Mile</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="small-3 columns otherDistance">
+<label for="other_distance">Other:</label>
+<input class="distance" id="otherDistance" name="other_distance" pattern="[0-9]*" type="text">
+<input name="distance_selection" type="hidden">
+</div>
+<div class="small-3 columns otherDistance">
+<select class="distance" id="distanceUnit" name="other_distance_unit">
+<option value="1.60934">Miles</option>
+<option value="1">Kilometers</option>
+</select>
+</div>
+</div>
+<div class="row">
+<div class="small-12 columns" id="instructions">Now enter a time to find pace or a pace to find time.</div>
+</div>
+<div class="row">
+<div class="small-12 columns">
+<strong>Finish Time</strong>
+</div>
+</div>
+<div class="row">
+<div class="small-4 columns">
+<div class="row collapse">
+<div class="small-6 columns">
+<span class="prefix radius">Hr:</span>
+</div>
+<div class="small-6 columns">
+<input class="time" id="timeHours" name="time_hours" pattern="[0-9]*" type="text" value="">
+</div>
+</div>
+</div>
+<div class="small-4 columns">
+<div class="row collapse">
+<div class="small-6 columns">
+<span class="prefix radius">Min:</span>
+</div>
+<div class="small-6 columns">
+<input class="time" id="timeMinutes" name="time_minutes" pattern="[0-9]*" type="text" value="">
+</div>
+</div>
+</div>
+<div class="small-4 columns">
+<div class="row collapse">
+<div class="small-6 columns">
+<span class="prefix radius">Sec:</span>
+</div>
+<div class="small-6 columns">
+<input class="time" id="timeSeconds" name="time_seconds" pattern="[0-9]*" type="text" value="">
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="small-8 columns">
+<p>To caulculate finish time enter distance and pace.</p>
+</div>
+<div class="small-4 columns">
+<a class="small button" id="calcPace">Find Pace</a>
+</div>
+<input name="time_selection" type="hidden" value="0">
+</div>
+<div class="row">
+<div class="small-12 columns">
+<strong>Pace</strong>
+</div>
+</div>
+<div class="row">
+<div class="small-6 columns">
+<div class="row collapse">
+<div class="small-4 columns">
+<span class="prefix radius">Min:</span>
+</div>
+<div class="small-8 columns">
+<input class="pace" id="paceMinutes" name="pace_minutes" pattern="[0-9]*" type="text">
+</div>
+</div>
+</div>
+<div class="small-6 columns">
+<div class="row collapse">
+<div class="small-4 columns">
+<span class="prefix radius">Sec:</span>
+</div>
+<div class="small-8 columns">
+<input class="pace" id="paceSeconds" name="pace_seconds" pattern="[0-9]*" type="text">
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="small-8 columns">
+<p>To caulculate pace enter distance and expected finish time.</p>
+</div>
+<div class="small-4 columns">
+<a class="small button" id="calcTime">Find Time</a>
+</div>
+</div>
+</form>
+</div>
+<footer></footer>
+<!--[if lt IE 7]>
+<p class="chromeframe"> You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-45173880-1', 'koipondlabs.com');
+  ga('send', 'pageview');
+</script>
+<script src="scripts/vendor/5b6a028b.jquery.js"></script>
+<script src="scripts/vendor/db696beb.foundation.js"></script>
+<script src="scripts/vendor/93d44c16.moment.js"></script>
+<script src="scripts/2431e2b8.paceCalculator.js"></script>
+<script src="scripts/vendor/f4dff991.fullscreensnippet.js"></script>
+<script src="scripts/vendor/57252c5b.fastclick.js"></script>
+</div>
+</body>
+</html>

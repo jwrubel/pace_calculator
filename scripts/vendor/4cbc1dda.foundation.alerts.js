@@ -1,0 +1,1 @@
+!function(a){"use strict";Foundation.libs.alerts={name:"alerts",version:"4.0.0",settings:{speed:300,callback:function(){}},init:function(b,c,d){return this.scope=b||this.scope,"object"==typeof c&&a.extend(!0,this.settings,c),"string"!=typeof c?(this.settings.init||this.events(),this.settings.init):this[c].call(this,d)},events:function(){var b=this;a(this.sc
